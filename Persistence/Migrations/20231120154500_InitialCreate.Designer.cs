@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231119212536_InitialCreate")]
+    [Migration("20231120154500_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -19,6 +19,20 @@ namespace Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.14");
+
+            modelBuilder.Entity("Domain.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
 
             modelBuilder.Entity("Domain.Product", b =>
                 {
@@ -41,9 +55,23 @@ namespace Persistence.Migrations
                     b.Property<bool>("isDeleted")
                         .HasColumnType("INTEGER");
 
+                    b.Property<Guid?>("productCategoryId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("productCategoryId");
+
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Domain.Product", b =>
+                {
+                    b.HasOne("Domain.Category", "productCategory")
+                        .WithMany()
+                        .HasForeignKey("productCategoryId");
+
+                    b.Navigation("productCategory");
                 });
 #pragma warning restore 612, 618
         }

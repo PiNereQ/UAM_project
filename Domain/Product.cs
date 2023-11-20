@@ -14,6 +14,8 @@ namespace Domain
 
         //public User creatorUserId { get; set; }
 
+        public Category productCategory { get; set; }
+
         public string imageUrl { get; set; }
     }
 }
