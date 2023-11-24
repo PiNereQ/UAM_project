@@ -29,7 +29,7 @@ namespace Persistence
                     Title = "Ball",
                     Description = "Small round toy",
                     isDeleted = false,
-                    creationDate = DateTime.UtcNow.AddDays(-15),
+                    //creationDate = DateTime.UtcNow.AddDays(-15),
                     imageUrl = ".",
                 },
                 new Product
@@ -37,7 +37,7 @@ namespace Persistence
                     Title = "Book",
                     Description = "Papers with some story",
                     isDeleted = false,
-                    creationDate = DateTime.UtcNow.AddDays(23),
+                    //creationDate = DateTime.UtcNow.AddDays(23),
                     imageUrl = ".",
                 },
                 new Product
@@ -45,7 +45,7 @@ namespace Persistence
                     Title = "Pen",
                     Description = "Simple stick, used to write smthng on paper",
                     isDeleted = false,
-                    creationDate = DateTime.UtcNow.AddDays(-34),
+                    //creationDate = DateTime.UtcNow.AddDays(-34),
                     imageUrl = ".",
                 }
             };

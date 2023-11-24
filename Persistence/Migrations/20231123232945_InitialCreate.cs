@@ -31,34 +31,22 @@ namespace Persistence.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     isDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
-                    creationDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    productCategoryId = table.Column<Guid>(type: "TEXT", nullable: true),
                     imageUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Products_Categories_productCategoryId",
-                        column: x => x.productCategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_productCategoryId",
-                table: "Products",
-                column: "productCategoryId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Products");
         }
     }
 }

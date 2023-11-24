@@ -10,11 +10,11 @@ namespace Domain
 
         public bool isDeleted { get; set; }
 
-        public DateTime creationDate { get; set; }
+        //public DateTime creationDate { get; set; }
 
         //public User creatorUserId { get; set; }
 
-        public Category productCategory { get; set; }
+        //public Category productCategory { get; set; }
 
         public string imageUrl { get; set; }
     }

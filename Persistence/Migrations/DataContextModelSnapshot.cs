@@ -43,32 +43,15 @@ namespace Persistence.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("creationDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("imageUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("isDeleted")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid?>("productCategoryId")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("productCategoryId");
-
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Domain.Product", b =>
-                {
-                    b.HasOne("Domain.Category", "productCategory")
-                        .WithMany()
-                        .HasForeignKey("productCategoryId");
-
-                    b.Navigation("productCategory");
                 });
 #pragma warning restore 612, 618
         }
